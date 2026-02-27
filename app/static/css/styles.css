@@ -1,0 +1,170 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #202534;
+  --primary: #3557ff;
+  --danger: #c62828;
+  --ok: #2e7d32;
+  --warning: #b26a00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.form-grid.compact {
+  grid-template-columns: 1fr 1fr auto;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cfd8e3;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn-primary {
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.metric {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.card-income p {
+  color: var(--ok);
+}
+
+.card-expense p {
+  color: var(--danger);
+}
+
+.card-forecast p {
+  color: var(--warning);
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item {
+  border: 1px solid #d5dbe6;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.vencida {
+  border-color: var(--danger);
+  background: #ffebee;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: white;
+}
+
+.tag.ok {
+  background: var(--ok);
+}
+
+.tag.warn {
+  background: var(--danger);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e4e8ef;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid.compact {
+    grid-template-columns: 1fr;
+  }
+}
