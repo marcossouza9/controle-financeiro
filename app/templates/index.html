@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <p>Cadastre entradas e saídas e acompanhe a previsão do seu saldo.</p>
+      </header>
+
+      <section class="panel filters">
+        <h2>Filtro por período</h2>
+        <div class="form-grid compact">
+          <label>
+            Mês
+            <select id="monthFilter"></select>
+          </label>
+          <label>
+            Ano
+            <input id="yearFilter" type="number" min="2000" max="2100" />
+          </label>
+          <button id="applyFilters" class="btn-primary">Aplicar filtro</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Novo lançamento</h2>
+        <form id="transactionForm" class="form-grid">
+          <label>
+            Valor
+            <input type="number" id="valor" min="0.01" step="0.01" required />
+          </label>
+          <label>
+            Data
+            <input type="date" id="data" required />
+          </label>
+          <label>
+            Tipo
+            <select id="tipo" required>
+              <option value="entrada">Entrada</option>
+              <option value="saida">Saída</option>
+            </select>
+          </label>
+          <label>
+            Categoria
+            <input type="text" id="categoria" placeholder="Ex: aluguel" required />
+          </label>
+          <label>
+            Forma de pagamento
+            <select id="forma_pagamento" required>
+              <option value="pix">Pix</option>
+              <option value="cartao_credito">Cartão de crédito</option>
+              <option value="debito">Débito</option>
+              <option value="dinheiro">Dinheiro</option>
+            </select>
+          </label>
+          <label>
+            Descrição (opcional)
+            <input type="text" id="descricao" />
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="pago" />
+            Pago / Recebido
+          </label>
+          <button class="btn-primary" type="submit">Salvar lançamento</button>
+        </form>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="metric card-balance">
+          <h3>Saldo atual</h3>
+          <p id="saldoAtual">R$ 0,00</p>
+        </article>
+        <article class="metric card-income">
+          <h3>Entradas do mês</h3>
+          <p id="entradasMes">R$ 0,00</p>
+        </article>
+        <article class="metric card-expense">
+          <h3>Saídas do mês</h3>
+          <p id="saidasMes">R$ 0,00</p>
+        </article>
+        <article class="metric card-forecast">
+          <h3>Previsão de saldo futuro</h3>
+          <p id="saldoFuturo">R$ 0,00</p>
+        </article>
+      </section>
+
+      <section class="two-columns">
+        <article class="panel">
+          <h2>Contas a pagar</h2>
+          <ul id="contasPagar" class="list"></ul>
+        </article>
+        <article class="panel">
+          <h2>Contas a receber</h2>
+          <ul id="contasReceber" class="list"></ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Todos os lançamentos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Forma</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTableBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
